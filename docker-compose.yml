@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:11-alpine
+    container_name: workout_postgres
+    environment:
+      POSTGRES_USER: workout_user
+      POSTGRES_PASSWORD: workout_password
+      POSTGRES_DB: workout_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - workout_network
+
+volumes:
+  postgres_data:
+
+networks:
+  workout_network:
+    driver: bridge
