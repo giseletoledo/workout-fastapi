@@ -1,7 +1,6 @@
 from datetime import datetime
 from sqlalchemy import DateTime, ForeignKey, Integer, String, Float
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from categorias.models import CategoriaModel
 from centro_treinamento.models import CentroTreinamentoModel
 from contrib.models import BaseModel
 
