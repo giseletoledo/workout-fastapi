@@ -1,10 +1,14 @@
 from fastapi import FastAPI
+from routers import api_router
 
 app = FastAPI()
+app.include_router(api_router)
 
-@app.get("/")
+""" @app.get("/")
 def root():
-    return {"message": "Workout API running"}
+    return {"message": "Workout API running"} """
+
+
 
 if __name__ == "__main__":
     import uvicorn
