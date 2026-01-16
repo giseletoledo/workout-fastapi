@@ -2,7 +2,7 @@ from fastapi import APIRouter, Body, status
 from categorias.schemas import CategoriaIn, CategoriaOut
 from categorias.models import CategoriaModel
 from fastapi import HTTPException
-from uuid import UUID
+from pydantic import UUID4
 from sqlalchemy import select
 
 from contrib.dependencies import DatabaseDependency
@@ -54,13 +54,19 @@ async def get_all(
     response_model=CategoriaOut,
 )
 async def query_id(
-    id: UUID,
+    id: UUID4,
     db_session: DatabaseDependency,
 ) -> CategoriaOut:
     result = await db_session.execute(
         select(CategoriaModel).filter_by(id=id)
     )
     categoria = result.scalars().first()
+
+    if not categoria:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f'Categoria não encontrada no id: {id}',
+        )
 
     return categoria
 
