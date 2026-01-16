@@ -9,9 +9,7 @@ class CentroTreinamentoIn(BaseSchema):
     proprietario: Annotated[str, Field(description='Proprietário do centro de treinamento', example='Marcos', max_length=30)]
 
 class CentroTreinamentoAtleta(BaseSchema):
-    nome: Annotated[str, Field(description='Nome do centro de treinamento', example='CT King', max_length=20)]
-    endereco: Annotated[str, Field(description='Endereço do centro de treinamento', example='Rua A, 123', max_length=60)]
-    proprietario: Annotated[str, Field(description='Proprietário do centro de treinamento', example='Marcos', max_length=30)]
-
+    nome: Annotated[str, Field(description='Nome do centro de treinamento', example='CT King', max_length=20)] #campo que sera exibido no atleta no swagger
+   
 class CentroTreinamentoOut(CentroTreinamentoIn):  
     id: Annotated[UUID4, Field(description='ID do centro de treinamento', example='3fa85f64-5717-4562-b3fc-2c963f66afa6')]
