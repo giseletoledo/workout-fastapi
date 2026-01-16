@@ -1,6 +1,9 @@
 from fastapi import APIRouter
 from fastapi import Body, status
 from uuid import uuid4
+from atleta.schemas import AtletaIn, AtletaOut
+from atleta.models import AtletaModel
+
 from contrib.dependencies import DatabaseDependency
 
 router = APIRouter()
