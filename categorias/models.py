@@ -1,6 +1,7 @@
 from sqlalchemy import Integer, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from contrib.models import BaseModel
+# erro de importação cicular, importar AtletaModel no init.py da raiz do projeto
 
 class CategoriaModel(BaseModel):
     __tablename__ = 'categorias'

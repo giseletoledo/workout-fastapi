@@ -2,6 +2,8 @@ from datetime import datetime
 from sqlalchemy import DateTime, ForeignKey, Integer, String, Float
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from contrib.models import BaseModel
+from typing import List
+# erro de importação cicular, importar CategoriaModel e CentroTreinamentoModel no init.py da raiz do projeto
 
 
 class AtletaModel(BaseModel):
